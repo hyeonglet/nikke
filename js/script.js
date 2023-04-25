@@ -1,8 +1,4 @@
 $(document).ready(function(){
-    $(".ten").click(function(){
-        alert("아직 미구현 기능 입니다.")
-    });
-
     // 단뽑
     $(".one").click(function(){
         $(".modal").fadeIn(300);
@@ -10,6 +6,15 @@ $(document).ready(function(){
 
     $(".modal > .modal_all > button").click(function(){
         $(".modal").hide();
+    });
+
+    // 10연뽑
+    $(".ten").click(function(){
+        $(".modal2").fadeIn(300);
+    });
+
+    $(".modal2 > .modal_all2 > button").click(function(){
+        $(".modal2").hide();
     });
 
     // const imagesArray = ["니케.png", "대원모집.png", "로비.png", "스쿼드.png", "인벤토리.png"];
