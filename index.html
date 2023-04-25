@@ -15,272 +15,77 @@
             var myButtonTwo = document.getElementById("myButtonTwo");
             var myButton = document.getElementById("myButton");
 
+            // 단차스크립트
+            myButton.addEventListener("click", function() {
+                var resultTwo = selectItemWithProbability();
+                var drawElementTwo = document.querySelector(".draw");
+                drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
+            });
 
-                    //임시복제
-        myButton.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
+            function selectItemWithProbability() {
+                var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
+                var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
 
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
+                for (var i = 1; i < probabilitiesTwo.length; i++) {
+                    probabilitiesTwo[i] += probabilitiesTwo[i - 1];
                 }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
+                var randomValueTwo = Math.random();
 
-        //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw1");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
+                for (var i = 0; i < probabilitiesTwo.length; i++) {
+                    if (randomValueTwo < probabilitiesTwo[i]) {
+                    return itemsTwo[i];
+                    }
                 }
+                    return itemsTwo[itemsTwo.length - 1];
             }
-                return itemsTwo[itemsTwo.length - 1];
-            }
 
 
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw2");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
+                // 연차스크립트
+                // 가능한 결과들을 배열로 정의합니다.
+                const results = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
 
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
+                // 각 결과에 대한 확률을 배열로 정의합니다.
+                const probabilities = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
 
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
+                // 결과를 출력하는 함수를 정의합니다.
+                function getResult() {
+                // 각 결과에 대한 누적 확률을 저장할 배열을 생성합니다.
+                const cumulativeProbabilities = [];
+                let cumulativeProbability = 0;
+                for (let i = 0; i < probabilities.length; i++) {
+                    cumulativeProbability += probabilities[i];
+                    cumulativeProbabilities.push(cumulativeProbability);
                 }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
-            
+                
+                // 결과를 저장할 배열을 생성합니다.
+                const resultsArray = [];
+                
+                // 10개의 결과를 무작위로 선택하여 배열에 저장합니다.
+                for (let i = 0; i < 10; i++) {
+                    // 0에서 1 사이의 랜덤한 값을 생성합니다.
+                    const randomValue = Math.random();
 
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw3");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
+                    // 랜덤한 값을 이용하여 결과 값을 선택합니다.
+                    for (let i = 0; i < cumulativeProbabilities.length; i++) {
+                    if (randomValue <= cumulativeProbabilities[i]) {
+                        resultsArray.push(results[i]);
+                        break;
+                    }
+                    }
                 }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
-
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw4");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
+                
+                return resultsArray;
                 }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
 
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw5");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
+                // 결과를 출력하는 함수를 호출하여 이미지에 결과 값을 할당합니다.
+                document.getElementById("myButtonTwo").addEventListener("click", function() {
+                const resultsArray = getResult();
+                const images = document.querySelectorAll(".draw1");
+                
+                for (let i = 0; i < images.length; i++) {
+                    images[i].src = "images/nikke/" + resultsArray[i] + ".jpg";
                 }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
-
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw6");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
-                }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
-
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw7");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
-                }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
-
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw8");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
-                }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
-
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw9");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
-                }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
-
-                    //임시복제
-        myButtonTwo.addEventListener("click", function() {
-            var resultTwo = selectItemWithProbability();
-            var drawElementTwo = document.querySelector(".draw10");
-            drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-        });
-
-        function selectItemWithProbability() {
-            var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "비스킷", "소다", "코코아", "바이퍼", "자칼", "라플라스", "헬름", "베스티", "페퍼", "밀크", "율하", "루피", "도라", "노벨", "리타", "메이든", "폴크방", "노이즈", "볼륨", "아리아", "에피넬", "얀", "루드밀라", "길로틴", "애드미", "메어리", "크로우", "드레이크", "은화", "센티", "디젤", "솔린", "브리드", "미란다", "폴리", "시그널", "율리아", "프림", "프리바티", "유니", "엠마", "앨리스", "엑시아", "슈가", "맥스웰", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란", "D"];
-            var probabilitiesTwo = [0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.058889, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.047778, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000333, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.000714, 0.02];
-
-            for (var i = 1; i < probabilitiesTwo.length; i++) {
-                probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-            }
-            var randomValueTwo = Math.random();
-
-            for (var i = 0; i < probabilitiesTwo.length; i++) {
-                if (randomValueTwo < probabilitiesTwo[i]) {
-                return itemsTwo[i];
-                }
-            }
-                return itemsTwo[itemsTwo.length - 1];
-            }
+                });
         };
     </script>
 
@@ -296,15 +101,15 @@
         <div class="modal_all2">
             <div class="container">
                 <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw2" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw3" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw4" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw5" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw6" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw7" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw8" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw9" src="images/nikke/iDoll썬.jpg" alt=""></div>
-                <div class="item"><img class="draw10" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
+                <div class="item"><img class="draw1" src="images/nikke/iDoll썬.jpg" alt=""></div>
             </div>
             <button>확인</button>
         </div>

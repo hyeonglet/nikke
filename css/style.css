@@ -43,8 +43,10 @@ html,body,.wrap {
 }
 
 .modal .modal_all {
-    width: 1400px;
-    height: 900px;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    max-height: 900px;
     background: #eee;
     position: absolute;
     left: 50%;
@@ -57,7 +59,8 @@ html,body,.wrap {
     left: 50%;
     top: 40%;
     transform: translate(-50%,-50%);
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .modal .modal_all button {
@@ -87,8 +90,10 @@ html,body,.wrap {
 }
 
 .modal2 .modal_all2 {
-    width: 1400px;
-    height: 900px;
+    width: 100%;
+    height: 100%;
+    max-width: 1400px;
+    max-height: 900px;
     background: #eee;
     position: absolute;
     left: 50%;
@@ -97,8 +102,10 @@ html,body,.wrap {
 }
 
 .modal2 .modal_all2 .container {
-    width: 1300px;
-    height: 720px;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    max-height: 720px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -138,6 +145,7 @@ html,body,.wrap {
 }
 
 .top .container {
+    width: 100%;
     max-width: 1400px;
     height: 100%;
     margin: 0 auto;
@@ -168,7 +176,8 @@ html,body,.wrap {
 }
 
 .bot .container {
-    width: 558px;
+    width: 100%;
+    max-width: 558px;
     height: 100%;
     margin: 0 auto;
 }
@@ -186,7 +195,13 @@ html,body,.wrap {
     float: right;
 }
 
+.bot .container .btn a {
+    width: 100%;
+    max-width: 270px;
+}
+
 .bot .container .btn a img {
+    width: 100%;
     border-radius: 7px;
 }
 
@@ -252,4 +267,53 @@ html,body,.wrap {
     left: 50%;
     bottom: 20px;
     transform: translateX(-50%);
+}
+
+
+@media (max-width:539px){
+    .bot .container .btn a {
+        max-width: 200px;
+    }
+
+    .modal2 .modal_all2 .item {
+        width: 22%;
+    }
+}
+
+@media (max-width:399px){
+    .bot .container .btn a {
+        max-width: 190px;
+    }
+}
+
+@media (max-width:380px){
+    .bot .container .btn a {
+        max-width: 180px;
+    }
+}
+
+@media (max-width:360px){
+    .bot .container .btn a {
+        max-width: 175px;
+    }
+}
+
+@media (max-width:320px){
+    .bot .container .btn a {
+        max-width: 155px;
+    }
+}
+
+@media (max-width:280px){
+    .bot .container .btn a {
+        max-width: 135px;
+    }
+
+    .bot .container .nav ul.gnb > li > a {
+        font-size: 12px;
+    }
+
+    .bot .container .nav ul.gnb > li > a img {
+        margin-top: 25px;
+    }
 }
