@@ -17,6 +17,20 @@ $(document).ready(function(){
         $(".modal2").hide();
     });
 
+    // 인벤토리
+    $(".inven").click(function(){
+            $(".modal3").fadeIn(300);
+    });
+    
+    $(".modal3 > .modal_all3 > button").click(function(){
+        $(".modal3").hide();
+    });
+
+    // 필그림몰드
+    $("#pilgrimBtn").click(function(){
+        $(".modal").fadeIn(300);
+    });
+
     // const imagesArray = ["니케.png", "대원모집.png", "로비.png", "스쿼드.png", "인벤토리.png"];
     // const pbtArray = [10, 10, 10, 10, 60];
     // const randomButton = document.querySelector(".one");

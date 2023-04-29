@@ -14,6 +14,7 @@
         window.onload = function() {
             var myButtonTwo = document.getElementById("myButtonTwo");
             var myButton = document.getElementById("myButton");
+            var pilgrimBtn = document.getElementById("pilgrimBtn");
 
             // 단차스크립트
             myButton.addEventListener("click", function() {
@@ -86,6 +87,32 @@
                     images[i].src = "images/nikke/" + resultsArray[i] + ".jpg";
                 }
                 });
+
+
+                            // 단차스크립트
+            pilgrimBtn.addEventListener("click", function() {
+                var resultTwo = selectItemWithProbability();
+                var drawElementTwo = document.querySelector(".draw");
+                drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
+            });
+
+            function selectItemWithProbability() {
+                var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란"];
+                var probabilitiesTwo = [0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.07145, 0.07145, 0.07145, 0.07145, 0.07145, 0.07145, 0.07145];
+
+                for (var i = 1; i < probabilitiesTwo.length; i++) {
+                    probabilitiesTwo[i] += probabilitiesTwo[i - 1];
+                }
+                var randomValueTwo = Math.random();
+
+                for (var i = 0; i < probabilitiesTwo.length; i++) {
+                    if (randomValueTwo < probabilitiesTwo[i]) {
+                    return itemsTwo[i];
+                    }
+                }
+                    return itemsTwo[itemsTwo.length - 1];
+            }
+                
         };
     </script>
 
@@ -114,6 +141,14 @@
             <button>확인</button>
         </div>
     </div>
+    <div class="modal3">
+        <div class="modal_all3">
+            <a href="#" id="pilgrimBtn">
+                <img src="images/필그림몰드.jpg" alt="">
+            </a>
+            <button>확인</button>
+        </div>
+    </div>
     <div class="wrap">
         <section class="top">
             <div class="container">
@@ -136,7 +171,7 @@
                         <li><a href="#"><img src="images/footer_ui/니케.png" alt=""><span>니케</span></a></li>
                         <li><a href="#"><img src="images/footer_ui/스쿼드.png" alt=""><span>스쿼드</span></a></li>
                         <li><a href="#"><img src="images/footer_ui/로비.png" alt=""><span>로비</span></a></li>
-                        <li><a href="#"><img src="images/footer_ui/인벤토리.png" alt=""><span>인벤토리</span></a></li>
+                        <li><a href="#" class="inven"><img src="images/footer_ui/인벤토리.png" alt=""><span>인벤토리</span></a></li>
                         <li><a href="#"><img src="images/footer_ui/대원모집.png" alt=""><span>대원모집</span></a></li>
                     </ul>
                 </div>
