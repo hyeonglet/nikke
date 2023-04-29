@@ -86,33 +86,7 @@
                 for (let i = 0; i < images.length; i++) {
                     images[i].src = "images/nikke/" + resultsArray[i] + ".jpg";
                 }
-                });
-
-
-                            // 단차스크립트
-            pilgrimBtn.addEventListener("click", function() {
-                var resultTwo = selectItemWithProbability();
-                var drawElementTwo = document.querySelector(".draw");
-                drawElementTwo.src = "images/nikke/" + resultTwo + ".jpg";
-            });
-
-            function selectItemWithProbability() {
-                var itemsTwo = ["iDoll썬", "iDoll오션", "iDoll플라워", "솔져O.W.", "솔져F.A.", "솔져E.G.", "프로덕트23", "프로덕트12", "프로덕트08", "미카", "벨로타", "아니스", "델타", "네온", "라피", "에테르", "미하라", "N102", "모더니아", "라푼젤", "이사벨", "홍련", "노아", "스노우화이트", "하란"];
-                var probabilitiesTwo = [0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.022216, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.033323, 0.07145, 0.07145, 0.07145, 0.07145, 0.07145, 0.07145, 0.07145];
-
-                for (var i = 1; i < probabilitiesTwo.length; i++) {
-                    probabilitiesTwo[i] += probabilitiesTwo[i - 1];
-                }
-                var randomValueTwo = Math.random();
-
-                for (var i = 0; i < probabilitiesTwo.length; i++) {
-                    if (randomValueTwo < probabilitiesTwo[i]) {
-                    return itemsTwo[i];
-                    }
-                }
-                    return itemsTwo[itemsTwo.length - 1];
-            }
-                
+                });              
         };
     </script>
 
@@ -146,6 +120,12 @@
             <a href="#" id="pilgrimBtn">
                 <img src="images/필그림몰드.jpg" alt="">
             </a>
+            <button>확인</button>
+        </div>
+    </div>
+    <div class="modal_pilgrim">
+        <div class="modal_all_pilgrim">
+            <img class="draw_pilgrim" src="images/footer_ui/니케.png" alt="">
             <button>확인</button>
         </div>
     </div>
